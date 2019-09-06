@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" /><!-- 开发模式 控制台信息 -->
+	<!--
+		<constant name="struts.objectFactory" value="spring"/>
+		交给spring 不配置也可以
+	 -->
+	<package name="basicstruts2" extends="struts-default">
+		<!-- 需要进行权限控制的页面访问 -->
+		<!-- 不指定 class 默认ActionSupport执行 默认execute方法 -->
+		<!-- WEB-INF下面的受保护 不能直接访问 -->
+		<action name="page_*_*">
+			<result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
+		</action>
+	</package>
+</struts>
